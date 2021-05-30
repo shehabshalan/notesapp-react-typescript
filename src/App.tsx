@@ -24,6 +24,16 @@ const theme = createMuiTheme({
 });
 
 function App() {
+  const initialState = {
+    notes: localStorage.getItem("notes")
+      ? JSON.parse(localStorage.getItem("notes") as any)
+      : [],
+  };
+  const [notes, setNotes] = useState(initialState.notes);
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(initialState.notes));
+    setNotes(initialState.notes);
+  }, []);
   return (
     <ThemeProvider theme={theme}>
       <Router>

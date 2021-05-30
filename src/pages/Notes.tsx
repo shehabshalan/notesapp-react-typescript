@@ -10,9 +10,9 @@ export default function Notes() {
       : [],
   };
   const [notes, setNotes] = useState(initialState.notes);
-  // useEffect(() => {
-  //   console.log(notes.length);
-  // }, []);
+  useEffect(() => {
+    setNotes(initialState.notes);
+  }, []);
   const handleDelete = async (id: any) => {
     const newNotes = notes.filter((note: any) => note.id !== id);
     console.log(newNotes);
