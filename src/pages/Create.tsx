@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { uuid } from "uuidv4";
 
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import { FormControlLabel, makeStyles } from "@material-ui/core";
@@ -14,15 +15,6 @@ import {
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 const useStyles = makeStyles({
-  // each property inside this object is a css class
-  // btn: {
-  //   fontSize: 60,
-  //   backgroundColor: 'violet',
-  //   '&:hover': {
-  //     background: 'blue',
-  //   },
-  // }
-
   field: {
     margingTop: 20,
     marginBottom: 20,
@@ -38,14 +30,21 @@ export default function Create() {
   const [titleError, setTitleError] = useState(false);
   const [detailsError, setDetailsError] = useState(false);
   const [category, setCategory] = useState("reminders");
+
   const handleSubmit = (e: any) => {
     e.preventDefault();
+
     if (title && details) {
-      fetch("http://localhost:8000/notes", {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify({ title, details, category }),
-      }).then(() => history.push("/"));
+      let getAllNotes = JSON.parse(localStorage.getItem("notes") as any);
+      const newNote = {
+        id: uuid(),
+        title: title,
+        details: details,
+        category: category,
+      };
+
+      localStorage.setItem("notes", JSON.stringify([...getAllNotes, newNote]));
+      history.push("/");
     }
 
     setTitleError(false);

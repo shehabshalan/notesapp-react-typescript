@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
+
 import Container from "@material-ui/core/Container";
 import NoteCard from "../components/NoteCard";
 import Masonry from "react-masonry-css";
 export default function Notes() {
-  const [notes, setNotes] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:8000/notes")
-      .then((res) => res.json())
-      .then((data) => setNotes(data));
-  }, []);
-
+  const initialState = {
+    notes: localStorage.getItem("notes")
+      ? JSON.parse(localStorage.getItem("notes") as any)
+      : [],
+  };
+  const [notes, setNotes] = useState(initialState.notes);
+  // useEffect(() => {
+  //   console.log(notes.length);
+  // }, []);
   const handleDelete = async (id: any) => {
-    await fetch(`http://localhost:8000/notes/${id}`, { method: "DELETE" });
     const newNotes = notes.filter((note: any) => note.id !== id);
+    console.log(newNotes);
     setNotes(newNotes);
+    localStorage.setItem("notes", JSON.stringify(newNotes));
   };
 
   const breakpoints = {

@@ -2,15 +2,17 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Notes from "./pages/Notes";
 import Create from "./pages/Create";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+
 import { TheatersSharp } from "@material-ui/icons";
 import { purple } from "@material-ui/core/colors";
 import Layout from "./components/Layout";
+import { useEffect, useState } from "react";
 const theme = createMuiTheme({
   palette: {
     primary: {
       main: "#fefefe",
     },
-    secondary: purple,
+    secondary: { main: "#F4BB19" },
   },
   typography: {
     fontFamily: "Quicksand",
