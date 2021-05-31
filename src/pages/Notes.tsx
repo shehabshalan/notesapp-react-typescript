@@ -12,6 +12,7 @@ export default function Notes() {
   const [notes, setNotes] = useState(initialState.notes);
   useEffect(() => {
     setNotes(initialState.notes);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const handleDelete = async (id: any) => {
     const newNotes = notes.filter((note: any) => note.id !== id);

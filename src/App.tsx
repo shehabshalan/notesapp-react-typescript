@@ -17,7 +17,7 @@ function App() {
   };
   const [darkMode, setDarkMode] = useState(initialState.dark);
   const [notes, setNotes] = useState(initialState.notes);
-
+  console.log(notes);
   const theme = createMuiTheme({
     palette: {
       primary: {
@@ -48,6 +48,7 @@ function App() {
   };
   useEffect(() => {
     setUpLocalStorage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <ThemeProvider theme={theme}>
