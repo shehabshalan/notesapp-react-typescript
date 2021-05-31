@@ -30,7 +30,7 @@ const NoteCard = ({ note, handleDelete }: { note: any; handleDelete: any }) => {
   return (
     <div>
       {note ? (
-        <Card elevation={2}>
+        <Card elevation={4}>
           <CardHeader
             avatar={
               <Avatar className={classes.avatar}>

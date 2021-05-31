@@ -11,6 +11,7 @@ import {
   AppBar,
   Toolbar,
   Avatar,
+  Switch,
 } from "@material-ui/core";
 import { AddCircleOutlined, SubjectOutlined } from "@material-ui/icons";
 import { useHistory, useLocation } from "react-router-dom";
@@ -22,7 +23,6 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => {
   return {
     page: {
-      background: "#f9f9f9",
       width: "100%",
       padding: theme.spacing(3),
     },
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => {
       display: "flex",
     },
     active: {
-      background: "#f4f4f4",
+      background: "#515151",
     },
     title: {
       padding: theme.spacing(2),
@@ -54,7 +54,15 @@ const useStyles = makeStyles((theme) => {
     },
   };
 });
-const Layout = ({ children }: { children: any }) => {
+const Layout = ({
+  children,
+  handleChange,
+  darkMode,
+}: {
+  children: any;
+  darkMode: any;
+  handleChange: any;
+}) => {
   const classes = useStyles();
   const history = useHistory();
   const location = useLocation();
@@ -78,8 +86,8 @@ const Layout = ({ children }: { children: any }) => {
           <Typography className={classes.appname}>
             Welcome to <b>NOTED</b> {/* {format(new Date(), 'do MMMM Y')} */}
           </Typography>
-          <Typography>Shehab</Typography>
-          <Avatar src="/original.jpg" className={classes.avatar} />
+          <Switch checked={darkMode} onChange={handleChange} />
+          <Typography>Dark Mode</Typography>
         </Toolbar>
       </AppBar>
       {/* side drawer */}
@@ -103,7 +111,7 @@ const Layout = ({ children }: { children: any }) => {
               key={item.text}
               button
               onClick={() => history.push(item.path)}
-              className={location.pathname == item.path ? classes.active : ""}
+              // className={location.pathname == item.path ? classes.active : ""}
             >
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
