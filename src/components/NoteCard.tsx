@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
@@ -10,13 +9,13 @@ import { blue, green, red, yellow } from "@material-ui/core/colors";
 const useStyles = makeStyles({
   avatar: {
     background: (note: any) => {
-      if (note.category == "work") {
+      if (note.category === "work") {
         return yellow[700];
       }
-      if (note.category == "reminders") {
+      if (note.category === "reminders") {
         return green[500];
       }
-      if (note.category == "todos") {
+      if (note.category === "todos") {
         return red[500];
       }
       return blue[500];

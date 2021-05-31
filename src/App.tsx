@@ -3,8 +3,6 @@ import Notes from "./pages/Notes";
 import Create from "./pages/Create";
 import { createMuiTheme, Paper, ThemeProvider } from "@material-ui/core";
 
-import { TheatersSharp } from "@material-ui/icons";
-import { purple } from "@material-ui/core/colors";
 import Layout from "./components/Layout";
 import { useEffect, useState } from "react";
 

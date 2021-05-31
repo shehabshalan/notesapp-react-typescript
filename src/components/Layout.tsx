@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core";
-import React from "react";
 
 import {
   Typography,
@@ -10,12 +9,10 @@ import {
   Drawer,
   AppBar,
   Toolbar,
-  Avatar,
   Switch,
 } from "@material-ui/core";
 import { AddCircleOutlined, SubjectOutlined } from "@material-ui/icons";
-import { useHistory, useLocation } from "react-router-dom";
-import { format } from "date-fns";
+import { useHistory } from "react-router-dom";
 const drawerWidth = 240;
 // List = ul
 // ListItem = li
@@ -65,7 +62,6 @@ const Layout = ({
 }) => {
   const classes = useStyles();
   const history = useHistory();
-  const location = useLocation();
   const menuItems = [
     {
       text: "My Notes",
