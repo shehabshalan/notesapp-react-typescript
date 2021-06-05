@@ -80,7 +80,8 @@ const Layout = ({
       <AppBar className={classes.appbar} elevation={0}>
         <Toolbar>
           <Typography className={classes.appname}>
-            Welcome to <b>NOTED</b> {/* {format(new Date(), 'do MMMM Y')} */}
+            Welcome back to <b>NOTED</b>{" "}
+            {/* {format(new Date(), 'do MMMM Y')} */}
           </Typography>
           <Switch checked={darkMode} onChange={handleChange} />
           <Typography>Dark Mode</Typography>
