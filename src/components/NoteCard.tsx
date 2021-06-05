@@ -52,7 +52,7 @@ const NoteCard = ({ note, handleDelete }: { note: any; handleDelete: any }) => {
           </CardContent>
         </Card>
       ) : (
-        <Typography>There are no notes, add some!</Typography>
+        <Typography>No notes, add some!</Typography>
       )}
     </div>
   );
