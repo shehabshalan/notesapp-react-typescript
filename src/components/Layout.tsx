@@ -84,7 +84,7 @@ const Layout = ({
             {/* {format(new Date(), 'do MMMM Y')} */}
           </Typography>
           <Switch checked={darkMode} onChange={handleChange} />
-          <Typography>Dark Mode</Typography>
+          <Typography>Dark</Typography>
         </Toolbar>
       </AppBar>
       {/* side drawer */}
