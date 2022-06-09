@@ -1,4 +1,5 @@
 # React Note App
-
-visit here 
-https://noteappreact.netlify.app/
+This React app uses the following technologies
+- React.js
+- Material UI
+- LocalStorage api.
