@@ -1,5 +1,6 @@
 # React Note App
-This React app uses the following technologies
+The app allows you to take notes and save them into categories.
+Tech stack:
 - React.js
 - Material UI
 - LocalStorage api.
